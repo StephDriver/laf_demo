@@ -214,18 +214,42 @@
     });
   }
 
+  // Draws the rights of way a project is about (listed as "paths" in the
+  // project's index.md) in thick yellow, so they stand out on its map.
+  function loadHighlightedPaths(map, project) {
+    var wanted = project.paths || [];
+    if (!config.rightsOfWay || wanted.length === 0) return Promise.resolve(null);
+    return getJSON(config.rightsOfWay).then(function (data) {
+      return L.geoJSON(data, {
+        filter: function (f) {
+          var p = f.properties;
+          return wanted.some(function (w) {
+            return p.parish === w.parish && String(p.number) === String(w.number) && p.type === w.type;
+          });
+        },
+        style: { color: "#ffd400", weight: 7, opacity: 1 }
+      });
+    });
+  }
+
   function initProjectMap(element) {
     var map = createMap(element, { scrollWheelZoom: false });
     var rightsOfWay = loadRightsOfWay(map);
     getJSON(config.projects).then(function (list) {
       var project = list.find(function (p) { return p.id === element.dataset.project; });
       if (!project) return;
-      return loadProject(project).then(function (group) {
+      return Promise.all([loadProject(project), loadHighlightedPaths(map, project), rightsOfWay]).then(function (r) {
+        var group = r[0], paths = r[1];
         group.addTo(map);
-        if (group.getLayers().length) {
-          map.fitBounds(group.getBounds(), { padding: [30, 30], maxZoom: 15 });
+        var bounds = group.getLayers().length ? group.getBounds() : null;
+        if (paths && paths.getLayers().length) {
+          paths.addTo(map);
+          paths.bringToFront();
+          bounds = bounds ? bounds.extend(paths.getBounds()) : paths.getBounds();
         }
-        return rightsOfWay.then(function () { bringToFront([group]); });
+        if (bounds) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16 });
+        bringToFront([group]);
+        if (paths) paths.bringToFront();
       });
     }).catch(function (error) { console.error(error); });
   }

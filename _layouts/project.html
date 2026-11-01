@@ -11,7 +11,7 @@ layout: default
   <div class="prose">
     {{ content }}
     {% include project-area.html project=page %}
-    {% if page.map != false %}{% if project_area or page.markers %}
+    {% if page.map != false %}{% if project_area or page.markers or page.paths %}
       <h2>Map</h2>
       {% include project-map.html %}
     {% endif %}{% endif %}

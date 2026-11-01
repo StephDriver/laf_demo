@@ -1,0 +1,38 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Fingringhoe Footpath 3 and surroundings"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       0.94539,
+       51.84502
+      ],
+      [
+       0.94698,
+       51.84502
+      ],
+      [
+       0.94698,
+       51.84717
+      ],
+      [
+       0.94539,
+       51.84717
+      ],
+      [
+       0.94539,
+       51.84502
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

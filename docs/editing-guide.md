@@ -182,6 +182,7 @@ As for photos, but upload to the project's `files/` folder and link to it with:
 
 4. To put it on the map, draw its area at [geojson.io](https://geojson.io/), select **Save** > **GeoJSON**, rename the downloaded file to `area.geojson`, and upload it to the project's folder.
    Or add markers for individual places; see the example in `_current/projects/` or ask the maintainer.
+   To highlight particular footpaths or bridleways, list them under `paths:` in the project's settings, copying the example in `access-for-disabled-cyclists-fingringhoe-3/index.md`. The parish, number and type (Footpath, Bridleway, Restricted Byway or Byway) must match the council's data exactly.
 5. Commit, then open a pull request.
 
 ### Add meeting papers
