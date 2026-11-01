@@ -215,3 +215,4 @@ To use an address like `www.yourlaf.org.uk`, add it in **Settings** > **Pages** 
 
 - `README.md` (top level of the repository): quick reference for common tasks.
 - `docs/site-design.md`: how the site is built and why, for anyone with web skills.
+- `docs/credits-and-licences.md`: the software and data the site uses, and the credits they require. Check it if you change the map data.

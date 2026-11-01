@@ -41,3 +41,4 @@ Only the named folder is published.
 
 - [docs/getting-started.md](docs/getting-started.md): setting up a copy of this site for your own forum, step by step.
 - [docs/site-design.md](docs/site-design.md): the full design.
+- [docs/credits-and-licences.md](docs/credits-and-licences.md): third-party software and data used by the site, and their licences.
