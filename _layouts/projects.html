@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign all = site.current | concat: site.archive %}
+{% assign updates = all | where: "kind", "update" | sort: "date" | reverse %}
+{% assign projects = all | where: "kind", "project" | sort: "title" %}
+
+<div class="two-col">
+  <section aria-labelledby="latest">
+    <h2 id="latest">Latest updates</h2>
+    <ul class="update-list">
+      {% for u in updates limit: 20 %}{% include update-item.html update=u show_project=true %}{% endfor %}
+    </ul>
+  </section>
+  <section aria-labelledby="all-projects">
+    <h2 id="all-projects">All projects</h2>
+    <p><a href="{{ '/map/' | relative_url }}">Find projects on the map</a></p>
+    <h3>Active</h3>
+    <ul class="stack">{% for p in projects %}{% if p.status != "archived" %}{% include project-card.html project=p %}{% endif %}{% endfor %}</ul>
+    <h3>Completed</h3>
+    <ul class="stack">{% for p in projects %}{% if p.status == "archived" %}{% include project-card.html project=p %}{% endif %}{% endfor %}</ul>
+  </section>
+</div>

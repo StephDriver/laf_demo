@@ -1,0 +1,7 @@
+{%- assign u = include.update -%}
+{%- include project-info.html doc=u -%}
+<li class="update">
+  <p class="meta"><time datetime="{{ u.date | date: '%Y-%m-%d' }}">{{ u.date | date: "%-d %B %Y" }}</time>{% if include.show_project and project %} &middot; <a href="{{ project_url | relative_url }}">{{ project.title }}</a>{% endif %}</p>
+  <h3><a href="{{ u.url | relative_url }}">{{ u.title }}</a></h3>
+  {{ u.content }}
+</li>

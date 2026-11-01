@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{% include map-assets.html %}
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign projects = site.current | concat: site.archive | where: "kind", "project" | sort: "title" %}
+<div class="map-layout">
+  <div id="main-map" class="map map--main" data-map="main" role="region" aria-label="Map of projects and rights of way"></div>
+  <div class="map-panel">
+    <label for="project-search">Find a project</label>
+    <input id="project-search" type="search" autocomplete="off" aria-describedby="project-count">
+    <p id="project-count" class="small" aria-live="polite">{{ projects.size }} projects</p>
+    <ul id="project-list" class="project-list">
+      {% for p in projects %}{% include project-info.html doc=p %}
+      <li data-project="{{ project_slug }}" data-search="{{ p.title | append: ' ' | append: p.summary | downcase | escape }}">
+        <a href="{{ project_url | relative_url }}">{{ p.title }}</a> {% include status.html status=p.status %}
+        <button type="button" class="link-button" data-show-project="{{ project_slug }}" hidden>Show on map</button>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% include map-legend.html %}

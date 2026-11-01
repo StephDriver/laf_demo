@@ -1,0 +1,12 @@
+{%- comment -%}Lists the pages of the project that include.doc belongs to.{%- endcomment -%}
+{%- include project-info.html doc=include.doc -%}
+{%- assign _pages = site.current | concat: site.archive | where: "kind", "project-page" | where_exp: "d", "d.url contains project_url" | sort: "order" -%}
+{%- if _pages.size > 0 -%}
+<nav class="project-nav" aria-label="Pages in this project">
+  <h2>Pages in this project</h2>
+  <ul>
+    <li><a href="{{ project_url | relative_url }}"{% if include.doc.kind == "project" %} aria-current="page"{% endif %}>Overview</a></li>
+    {% for d in _pages %}<li><a href="{{ d.url | relative_url }}"{% if d.url == include.doc.url %} aria-current="page"{% endif %}>{{ d.title }}</a></li>{% endfor %}
+  </ul>
+</nav>
+{%- endif -%}

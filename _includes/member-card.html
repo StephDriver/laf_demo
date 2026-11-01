@@ -1,0 +1,8 @@
+<li class="card member-card">
+  {% include member-photo.html member=include.member %}
+  <div>
+    <h3><a href="{{ include.member.url | relative_url }}">{{ include.member.name }}</a></h3>
+    <p class="meta">{{ include.member.role | default: "Member" }}{% if include.member.interest %} &middot; {{ include.member.interest }}{% endif %}</p>
+    {{ include.member.excerpt }}
+  </div>
+</li>

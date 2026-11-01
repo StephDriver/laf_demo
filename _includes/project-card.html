@@ -1,0 +1,6 @@
+{%- assign p = include.project -%}
+<li class="card project-card{% if p.status == 'archived' %} is-archived{% endif %}">
+  <h3><a href="{{ p.url | replace: 'index.html', '' | relative_url }}">{{ p.title }}</a></h3>
+  <p class="meta">{% include status.html status=p.status %}{% if p.started %} Started {% include month.html value=p.started %}{% endif %}{% if p.ended %}, ended {% include month.html value=p.ended %}{% endif %}</p>
+  <p>{{ p.summary }}</p>
+</li>

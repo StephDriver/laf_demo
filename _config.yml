@@ -1,0 +1,65 @@
+# Engine configuration.
+#
+# You should not normally need to edit this file. Everything specific to a
+# forum (name, contact details, map, pages, members, meetings, projects)
+# lives in a content folder. Site settings are in <content folder>/_data/site.yml.
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# ---------------------------------------------------------------------------
+# WHICH CONTENT FOLDER TO PUBLISH
+# To switch to a different content folder, change the folder name on BOTH of
+# these two lines (e.g. demo_content -> content). Only that folder is published.
+collections_dir: demo_content
+data_dir: demo_content/_data
+# ---------------------------------------------------------------------------
+
+# Show meetings and updates dated in the future (e.g. the next meeting).
+future: true
+
+plugins:
+  - jekyll-sitemap
+
+# Three kinds of content:
+#   general  - stand-alone pages (About, Contact, ...)  -> /about/
+#   current  - current members, meetings, projects      -> /members/<name>/...
+#   archive  - past members and closed projects         -> same addresses as current,
+#              so moving a folder to the archive does not break links.
+collections:
+  general:
+    output: true
+    permalink: /:path/
+  current:
+    output: true
+    permalink: /:path:output_ext
+  archive:
+    output: true
+    permalink: /:path:output_ext
+
+defaults:
+  - scope: { type: general }
+    values: { layout: page }
+  - scope: { type: current }
+    values: { status: current }
+  - scope: { type: archive }
+    values: { status: archived }
+  - scope: { path: "*/_*/members" }
+    values: { layout: member, kind: member }
+  - scope: { path: "*/_*/meetings" }
+    values: { layout: meeting, kind: meeting }
+  - scope: { path: "*/_*/projects" }
+    values: { layout: project-page, kind: project-page }
+  - scope: { path: "*/_*/projects/*/index.md" }
+    values: { layout: project, kind: project }
+  - scope: { path: "*/_*/projects/*/updates" }
+    values: { layout: update, kind: update }
+
+exclude:
+  - "*README.md"
+  - docs
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - tools

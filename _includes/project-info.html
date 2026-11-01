@@ -1,0 +1,12 @@
+{%- comment -%}
+  Works out which project a document belongs to.
+  Usage: {% include project-info.html doc=page %}
+  Sets:  project_slug - e.g. river-path
+         project      - the project's landing page (its index.md)
+         project_url  - e.g. /projects/river-path/
+{%- endcomment -%}
+{%- assign _parts = include.doc.url | split: "/" -%}
+{%- assign project_slug = _parts[2] -%}
+{%- assign project_url = "/projects/" | append: project_slug | append: "/" -%}
+{%- assign _landing = project_url | append: "index.html" -%}
+{%- assign project = site.current | concat: site.archive | where: "url", _landing | first -%}

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="member-profile">
+  {% include member-photo.html member=page %}
+  <div class="prose">
+    <h1>{{ page.name }}</h1>
+    <p class="meta">
+      {{ page.role | default: "Member" }}{% if page.interest %} &middot; {{ page.interest }}{% endif %}<br>
+      {% if page.status == "archived" %}
+        Served {% include month.html value=page.joined %} to {% include month.html value=page.left %}
+      {% elsif page.joined %}
+        Member since {% include month.html value=page.joined %}
+      {% endif %}
+    </p>
+    {{ content }}
+    <p><a href="{{ '/members/' | relative_url }}">All members</a></p>
+  </div>
+</article>

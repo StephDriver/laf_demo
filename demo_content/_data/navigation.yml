@@ -1,0 +1,23 @@
+# Main menu, in order. Each item needs a title and a link.
+main:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Members
+    url: /members/
+  - title: Meetings
+    url: /meetings/
+  - title: Projects
+    url: /projects/
+  - title: Map
+    url: /map/
+  - title: Contact
+    url: /contact/
+
+# Links in the page footer.
+footer:
+  - title: Accessibility
+    url: /accessibility/
+  - title: Sitemap
+    url: /sitemap/

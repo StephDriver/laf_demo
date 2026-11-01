@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign all = site.current | concat: site.archive %}
+<article class="prose">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+
+  <h2>Main pages</h2>
+  <ul>
+    {% for item in site.data.navigation.main %}<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>{% endfor %}
+    {% for item in site.data.navigation.footer %}<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>{% endfor %}
+  </ul>
+
+  <h2>Members</h2>
+  <ul>{% assign members = all | where: "kind", "member" | sort: "name" %}{% for m in members %}<li><a href="{{ m.url | relative_url }}">{{ m.name }}</a>{% if m.status == "archived" %} (past member){% endif %}</li>{% endfor %}</ul>
+
+  <h2>Meetings</h2>
+  <ul>{% assign meetings = all | where: "kind", "meeting" | sort: "date" | reverse %}{% for m in meetings %}<li><a href="{{ m.url | replace: 'index.html', '' | relative_url }}">{% include meeting-title.html meeting=m %}</a></li>{% endfor %}</ul>
+
+  <h2>Projects</h2>
+  <ul>
+  {% assign projects = all | where: "kind", "project" | sort: "title" %}
+  {% for p in projects %}{% include project-info.html doc=p %}
+    <li><a href="{{ project_url | relative_url }}">{{ p.title }}</a>{% if p.status == "archived" %} (completed){% endif %}
+      {% assign subpages = all | where: "kind", "project-page" | where_exp: "d", "d.url contains project_url" | sort: "order" %}
+      {% if subpages.size > 0 %}<ul>{% for d in subpages %}<li><a href="{{ d.url | relative_url }}">{{ d.title }}</a></li>{% endfor %}</ul>{% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</article>

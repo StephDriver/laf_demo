@@ -1,0 +1,21 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}Index of all projects, read by the maps.{%- endcomment -%}
+{%- assign all = site.current | concat: site.archive | where: "kind", "project" | sort: "title" -%}
+[
+{%- for p in all -%}
+  {%- include project-info.html doc=p -%}
+  {%- include project-area.html project=p -%}
+  {
+    "id": {{ project_slug | jsonify }},
+    "title": {{ p.title | jsonify }},
+    "summary": {{ p.summary | default: "" | jsonify }},
+    "status": {{ p.status | jsonify }},
+    "url": {{ project_url | relative_url | jsonify }},
+    "area": {% if project_area %}{{ project_area | relative_url | jsonify }}{% else %}null{% endif %},
+    "markers": {% if p.markers %}{{ p.markers | jsonify }}{% else %}[]{% endif %}
+  }{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]

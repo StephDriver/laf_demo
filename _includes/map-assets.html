@@ -1,0 +1,18 @@
+{%- comment -%}Loads Leaflet and the map script once per page.{%- endcomment -%}
+{%- unless map_assets_loaded -%}
+{%- assign map_assets_loaded = true -%}
+<link rel="stylesheet" href="{{ '/assets/vendor/leaflet/leaflet.css' | relative_url }}">
+<script src="{{ '/assets/vendor/leaflet/leaflet.js' | relative_url }}" defer></script>
+<script type="application/json" id="map-config">
+{
+  "centre": {{ site.data.site.map.centre | jsonify }},
+  "zoom": {{ site.data.site.map.zoom | default: 10 | jsonify }},
+  "rightsOfWay": {% if site.data.site.map.rights_of_way %}{{ site.data.site.map.rights_of_way | relative_url | jsonify }}{% else %}null{% endif %},
+  "rightsOfWayAttribution": {{ site.data.site.map.rights_of_way_attribution | default: "" | strip | jsonify }},
+  "projects": {{ '/assets/data/projects.json' | relative_url | jsonify }},
+  "markers": {% if site.data.markers %}{{ site.data.markers | jsonify }}{% else %}[]{% endif %},
+  "baseurl": {{ site.baseurl | default: "" | jsonify }}
+}
+</script>
+<script src="{{ '/assets/js/map.js' | relative_url }}" defer></script>
+{%- endunless -%}

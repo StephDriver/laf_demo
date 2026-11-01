@@ -1,0 +1,4 @@
+{%- comment -%}Formats 2024-03 as "March 2024".{%- endcomment -%}
+{%- assign _m = include.value | append: "" -%}
+{%- if _m.size == 7 -%}{%- assign _m = _m | append: "-01" -%}{%- endif -%}
+{%- if _m != "" -%}{{ _m | date: "%B %Y" }}{%- endif -%}

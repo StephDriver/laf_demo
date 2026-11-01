@@ -1,0 +1,5 @@
+{%- comment -%}Sets project_area to the web address of the project's area.geojson, or nil.{%- endcomment -%}
+{%- include folder.html doc=include.project -%}
+{%- assign project_area = nil -%}
+{%- assign _area_path = folder_path | append: "area.geojson" -%}
+{%- for f in folder_files -%}{%- if f.path contains _area_path -%}{%- assign project_area = folder_url | append: "area.geojson" -%}{%- endif -%}{%- endfor -%}

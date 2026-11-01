@@ -1,0 +1,13 @@
+# General markers shown on the main map.
+# Each marker needs a name, lat and lng. Description and link are optional.
+
+- name: Meryton Assembly Rooms
+  lat: 51.7347
+  lng: 0.4723
+  description: Venue for forum meetings (fictional).
+  link: /meetings/
+
+- name: Lambton Inn car park
+  lat: 51.9586
+  lng: 0.9853
+  description: Accessible starting point for local walks (fictional).

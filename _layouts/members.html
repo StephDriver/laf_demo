@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign members = site.current | where: "kind", "member" | sort: "name" %}
+{% assign officer_roles = "Chair,Vice Chair,Secretary" | split: "," %}
+
+<h2>Officers</h2>
+<ul class="card-grid">
+  {% for role in officer_roles %}
+    {% for m in members %}{% if m.role == role %}{% include member-card.html member=m %}{% endif %}{% endfor %}
+  {% endfor %}
+</ul>
+
+<h2>Members</h2>
+<ul class="card-grid">
+  {% for m in members %}{% unless officer_roles contains m.role %}{% include member-card.html member=m %}{% endunless %}{% endfor %}
+</ul>
+
+{% assign past = site.archive | where: "kind", "member" | sort: "left" | reverse %}
+{% if past.size > 0 %}
+<h2>Past members</h2>
+<table class="table">
+  <thead><tr><th scope="col">Name</th><th scope="col">Role</th><th scope="col">Served</th></tr></thead>
+  <tbody>
+  {% for m in past %}
+    <tr>
+      <td><a href="{{ m.url | relative_url }}">{{ m.name }}</a></td>
+      <td>{{ m.role | default: "Member" }}</td>
+      <td>{% include month.html value=m.joined %} to {% include month.html value=m.left %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}

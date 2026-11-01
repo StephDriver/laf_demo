@@ -1,0 +1,8 @@
+{%- assign m = include.meeting -%}
+<li class="card meeting" data-date="{{ m.date | date: '%Y-%m-%d' }}">
+  <h3><a href="{{ m.url | replace: 'index.html', '' | relative_url }}">{% include meeting-title.html meeting=m %}</a></h3>
+  <p class="meta">
+    <time datetime="{{ m.date | date: '%Y-%m-%d' }}">{{ m.date | date: "%A %-d %B %Y" }}</time>{% if m.time %}, {{ m.time }}{% endif %}{% if m.venue %}<br>{{ m.venue }}{% endif %}
+  </p>
+  {% include meeting-docs.html meeting=m past=include.past %}
+</li>

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign all = site.current | concat: site.archive %}
+{% assign today = site.time | date: "%Y-%m-%d" %}
+<div class="prose home-intro">
+  <h1>{{ page.heading | default: site.data.site.name }}</h1>
+  {{ content }}
+</div>
+
+<div class="home-grid">
+  <section aria-labelledby="next-meeting">
+    <h2 id="next-meeting">Next meeting</h2>
+    {% assign meetings = all | where: "kind", "meeting" | sort: "date" %}
+    {% assign next = nil %}
+    {% for m in meetings %}{% assign d = m.date | date: "%Y-%m-%d" %}{% if d >= today %}{% assign next = m %}{% break %}{% endif %}{% endfor %}
+    {% if next %}
+      <ul class="stack">{% include meeting-item.html meeting=next %}</ul>
+    {% else %}
+      <p>No upcoming meetings have been published yet.</p>
+    {% endif %}
+    <p><a href="{{ '/meetings/' | relative_url }}">All meetings, agendas and minutes</a></p>
+  </section>
+
+  <section aria-labelledby="latest-updates">
+    <h2 id="latest-updates">Latest project updates</h2>
+    {% assign updates = all | where: "kind", "update" | sort: "date" | reverse %}
+    <ul class="update-list">{% for u in updates limit: 3 %}{% include update-item.html update=u show_project=true %}{% endfor %}</ul>
+    <p><a href="{{ '/projects/' | relative_url }}">All projects and updates</a></p>
+  </section>
+</div>

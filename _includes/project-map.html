@@ -1,0 +1,9 @@
+{%- comment -%}
+  A map of one project: its area (area.geojson in the project folder) and any
+  markers listed in the project's index.md, over the rights of way.
+  Add it to any page of a project with:  {% include project-map.html %}
+{%- endcomment -%}
+{%- include project-info.html doc=page -%}
+{%- include map-assets.html -%}
+<div class="map map--project" data-map="project" data-project="{{ project_slug }}" role="region" aria-label="Map of {{ project.title | escape }}"></div>
+{% include map-legend.html %}

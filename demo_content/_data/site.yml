@@ -1,0 +1,28 @@
+# Settings for this forum's website.
+
+name: Demo Site for a Local Access Forum - Work in Progress
+short_name: Demo LAF
+description: >-
+  A demonstration website for a Local Access Forum. All people, meetings and
+  projects on this site are fictional.
+
+# The county or area the forum covers.
+area: Essex
+
+# Contact email shown on the Contact page and in the footer.
+email: demo@example.org
+
+# Shows a banner on every page saying this is a demo. Set to false for a real site.
+demo: true
+demo_message: >-
+  This is a demonstration site and is not the website of any real Local Access
+  Forum. All names are borrowed from Jane Austen's Pride and Prejudice.
+
+# Main map settings.
+map:
+  centre: [51.80, 0.62]   # latitude, longitude
+  zoom: 10
+  rights_of_way: /map/rights-of-way.geojson   # file in _general/map/
+  rights_of_way_attribution: >-
+    Rights of way &copy; Essex County Council, OGL v3.0. Contains OS data &copy;
+    Crown copyright and database right 2026.

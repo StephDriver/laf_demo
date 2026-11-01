@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% include project-info.html doc=page %}
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ '/projects/' | relative_url }}">Projects</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">{{ page.title }}</span></nav>
+<h1>{{ page.title }}</h1>
+<p class="meta">{% include status.html status=page.status %}{% if page.started %} Started {% include month.html value=page.started %}{% endif %}{% if page.ended %}, ended {% include month.html value=page.ended %}{% endif %}</p>
+{% if page.summary %}<p class="lead">{{ page.summary }}</p>{% endif %}
+
+<div class="with-sidebar">
+  <div class="prose">
+    {{ content }}
+    {% include project-area.html project=page %}
+    {% if page.map != false %}{% if project_area or page.markers %}
+      <h2>Map</h2>
+      {% include project-map.html %}
+    {% endif %}{% endif %}
+
+    {% assign updates = site.current | concat: site.archive | where: "kind", "update" | where_exp: "u", "u.url contains project_url" | sort: "date" | reverse %}
+    {% if updates.size > 0 %}
+    <h2>Updates</h2>
+    <ul class="update-list">{% for u in updates %}{% include update-item.html update=u %}{% endfor %}</ul>
+    {% endif %}
+  </div>
+  {% include project-nav.html doc=page %}
+</div>

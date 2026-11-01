@@ -1,0 +1,11 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.kind == "member" %}{% assign page_title = page.name %}{% elsif page.kind == "meeting" %}{% capture page_title %}{% include meeting-title.html meeting=page %}{% endcapture %}{% else %}{% assign page_title = page.title %}{% endif %}
+  <title>{% if page_title and page.url != "/" %}{{ page_title }} | {% endif %}{{ site.data.site.name }}</title>
+  <meta name="description" content="{{ page.summary | default: site.data.site.description | strip_html | normalize_whitespace | escape }}">
+  {% if site.data.site.demo %}<meta name="robots" content="noindex">{% endif %}
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</head>

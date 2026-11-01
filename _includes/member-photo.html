@@ -1,0 +1,12 @@
+{%- include folder.html doc=include.member -%}
+{%- assign _photo = nil -%}
+{%- if include.member.photo -%}
+  {%- assign _photo = folder_url | append: include.member.photo -%}
+{%- else -%}
+  {%- for f in folder_files -%}{%- if f.basename == "photo" -%}{%- assign _photo = f.path | remove_first: folder_path | prepend: folder_url -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- endif -%}
+{%- if _photo -%}
+<img class="member-photo" src="{{ _photo | relative_url }}" alt="Photo of {{ include.member.name }}" width="200" height="200" loading="lazy">
+{%- else -%}
+<div class="member-photo member-photo--none" aria-hidden="true"></div>
+{%- endif -%}
