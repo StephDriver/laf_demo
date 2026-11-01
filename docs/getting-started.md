@@ -193,7 +193,10 @@ To show footpaths and bridleways, you need your highway authority's rights-of-wa
 
    ```yaml
    rights_of_way: /map/rights-of-way.geojson
-   rights_of_way_attribution: Rights of way &copy; Your County Council, OGL v3.0. Contains OS data &copy; Crown copyright and database right 2026.
+   rights_of_way_attribution: >-
+     Rights of way &copy; Your County Council. Contains public sector information
+     licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>.
+     Contains OS data &copy; Crown copyright and database right 2026.
    ```
 
 ## Optional: use your own domain

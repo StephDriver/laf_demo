@@ -255,7 +255,7 @@ markers:               # optional, project-specific map markers
 - **Base map:** OpenStreetMap tiles via Leaflet. OpenStreetMap's tile usage policy allows this for low-traffic sites with attribution.
 - **Rights of way:** Essex County Council publishes its [Public Rights of Way GIS data](https://data.essex.gov.uk/dataset/em40y/public-rights-of-way-gis-data) under the Open Government Licence v3.0, as MapInfo files in British National Grid, updated quarterly.
 - **Pre-processing:** the data is reprojected to WGS 84 and simplified to a 2 m tolerance, giving a single 4.7 MB GeoJSON file (about 0.8 MB as served, since GitHub Pages compresses it). This is small enough that vector tiles (PMTiles) are not needed. Source, licence, and processing details are in `_general/map/README.md`. Refreshing the data is an occasional task, not a routine maintainer task.
-- **Attribution:** OSM, Essex County Council (OGL) and Ordnance Survey attributions are shown on every map. The key states that the data is not the legal Definitive Map. Full details of every third-party component and its licence are in `docs/credits-and-licences.md`.
+- **Attribution:** OSM, Essex County Council and the OGL statement (linked) are shown on every map, with an Ordnance Survey credit that is still to be confirmed. The key states that the data is not the legal Definitive Map. Full details of every third-party component and its licence are in `docs/credits-and-licences.md`.
 
 ### How the maps work
 

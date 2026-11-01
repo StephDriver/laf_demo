@@ -8,7 +8,7 @@ Public rights of way (footpaths, bridleways, restricted byways, byways) for the 
 |---|---|
 | Source | Essex County Council, [Public Rights of Way GIS Data](https://data.essex.gov.uk/dataset/em40y/public-rights-of-way-gis-data) |
 | Licence | [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |
-| Attribution | Contains public sector information licensed under the Open Government Licence v3.0. Rights of way data © Essex County Council. Contains Ordnance Survey data © Crown copyright and database right 2026. |
+| Attribution | Contains public sector information licensed under the Open Government Licence v3.0. Rights of way data © Essex County Council. Contains Ordnance Survey data © Crown copyright and database right 2026 (unconfirmed: Essex's dataset page does not mention OS data). |
 | Source data dated | 7 August 2026 |
 | Downloaded | 1 November 2026 |
 | Features | 10,671 (9,227 footpaths, 1,111 bridleways, 297 byways, 36 restricted byways) |

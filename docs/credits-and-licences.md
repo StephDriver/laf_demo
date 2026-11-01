@@ -8,7 +8,7 @@ This page lists everything in, or used by, this website that comes from someone 
 |---|---|---|---|---|
 | Leaflet (map software) | Volodymyr Agafonkin and CloudMade | BSD 2-Clause | Keep copyright notice and licence text | `assets/vendor/leaflet/` |
 | Base map tiles and data | OpenStreetMap contributors | Open Database Licence; tiles under the OSMF Tile Usage Policy | "© OpenStreetMap contributors", shown on the map | Loaded from `tile.openstreetmap.org` |
-| Essex rights of way | Essex County Council | Open Government Licence v3.0 | Council and Ordnance Survey credit, shown on the map | `demo_content/_general/map/rights-of-way.geojson` |
+| Essex rights of way | Essex County Council | Open Government Licence v3.0 | Council credit and OGL statement, shown on the map; Ordnance Survey credit (unconfirmed) | `demo_content/_general/map/rights-of-way.geojson` |
 | Jekyll, jekyll-sitemap | Jekyll contributors | MIT | None (not distributed with the site) | Run by GitHub Pages |
 | Demo names | Jane Austen, *Pride and Prejudice* (1813) | Public domain | None | `demo_content/` |
 | Demo photos, images and PDFs | Created for this project | See [This project's own licence](#this-projects-own-licence) | None | `demo_content/` |
@@ -46,8 +46,10 @@ The base map (roads, towns, rivers, woods, fields) shows [OpenStreetMap](https:/
 The footpaths, bridleways and byways on the demo's map come from Essex County Council's [Public Rights of Way GIS data](https://data.essex.gov.uk/dataset/em40y/public-rights-of-way-gis-data).
 
 - **Licence:** [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Allows copying, publishing and adapting the data, including converting it for web use, provided the source is credited.
-- **Credit shown on the map:** "Rights of way © Essex County Council, OGL v3.0. Contains OS data © Crown copyright and database right 2026." The council's data is derived from Ordnance Survey mapping, so the Ordnance Survey credit is required as well as the council's. The wording is set in `rights_of_way_attribution` in the content folder's `_data/site.yml`; update the year when the data is refreshed.
-- **Not the Definitive Map:** the data is an interpretation of the legal Definitive Map, not the Definitive Map itself. The map's key says so, and this must not be removed.
+- **Credit shown on the map:** "Rights of way © Essex County Council. Contains public sector information licensed under the Open Government Licence v3.0 (linked). Contains OS data © Crown copyright and database right 2026." OGL requires an attribution statement; the council's dataset page specifies none, so the licence's standard wording is used, with a link to the licence.
+- **Ordnance Survey credit:** included as a precaution because council rights-of-way data is commonly derived from OS mapping. Essex's dataset page does not mention OS data, so this is **unconfirmed**. Check the "Important Information about GIS Data" document in the council's download, or ask Essex Highways (SIC@essexhighways.org), and remove the OS line if it does not apply. The wording is set in `rights_of_way_attribution` in the content folder's `_data/site.yml`; update the year when the data is refreshed.
+- **Not the Definitive Map:** the data is an interpretation of the legal Definitive Map, not the Definitive Map itself. The council warns it may be inaccurate at scales more detailed than 1:10,000. The map's key says so, and this must not be removed.
+- **Modified:** the lines were simplified for web display (see the processing notes below). The key says so.
 - **Source, processing and dates:** see `demo_content/_general/map/README.md`.
 
 A forum using data from another council must check that council's licence and change the credit to match.

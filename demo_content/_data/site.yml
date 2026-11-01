@@ -24,5 +24,6 @@ map:
   zoom: 10
   rights_of_way: /map/rights-of-way.geojson   # file in _general/map/
   rights_of_way_attribution: >-
-    Rights of way &copy; Essex County Council, OGL v3.0. Contains OS data &copy;
-    Crown copyright and database right 2026.
+    Rights of way &copy; Essex County Council. Contains public sector information
+    licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>.
+    Contains OS data &copy; Crown copyright and database right 2026.
