@@ -1,0 +1,32 @@
+# Settings for your forum's website. Replace every value marked CHANGE ME.
+
+name: Your Local Access Forum   # CHANGE ME: the full name of your forum
+short_name: Your LAF            # CHANGE ME: a short version of the name
+description: >-
+  CHANGE ME: one or two sentences describing the forum. Search engines show
+  this under the site's name.
+
+# The county or area the forum covers.
+area: Your county               # CHANGE ME
+
+# Contact email shown on the Contact page and in the footer.
+email: forum@example.org        # CHANGE ME
+
+# Shows a "demo site" banner on every page and hides the site from search
+# engines. Keep this false for a real site.
+demo: false
+demo_message: ""
+
+# Main map settings.
+map:
+  # CHANGE ME: the latitude and longitude of the middle of your area, and how
+  # far in to zoom (9 shows a large county, 11 a district). To find the
+  # numbers, open openstreetmap.org, move the map to your area, and copy them
+  # from the address bar: .../#map=ZOOM/LATITUDE/LONGITUDE
+  centre: [52.5, -1.5]
+  zoom: 9
+
+  # Rights of way layer. Leave blank until you have the data for your area;
+  # see docs/getting-started.md.
+  rights_of_way:
+  rights_of_way_attribution:

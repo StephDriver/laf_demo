@@ -11,4 +11,5 @@
   });
   moved.reverse().forEach(function (li) { past.insertBefore(li, past.firstChild); });
   document.getElementById("meetings-none").hidden = upcoming.children.length > 0;
+  document.getElementById("meetings-past-none").hidden = past.children.length > 0;
 })();

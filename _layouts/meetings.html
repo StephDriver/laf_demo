@@ -14,6 +14,7 @@ layout: default
 <p class="muted" id="meetings-none"{% for m in meetings %}{% assign d = m.date | date: "%Y-%m-%d" %}{% if d >= today %} hidden{% break %}{% endif %}{% endfor %}>No upcoming meetings have been published yet.</p>
 
 <h2>Past meetings</h2>
+<p class="muted" id="meetings-past-none"{% for m in meetings %}{% assign d = m.date | date: "%Y-%m-%d" %}{% if d < today %} hidden{% break %}{% endif %}{% endfor %}>No past meetings yet.</p>
 <ul class="stack" id="meetings-past">
   {% assign past = meetings | reverse %}
   {% for m in past %}{% assign d = m.date | date: "%Y-%m-%d" %}{% if d < today %}{% include meeting-item.html meeting=m past=true %}{% endif %}{% endfor %}

@@ -1,0 +1,9 @@
+# General markers shown on the main map.
+# Each marker needs a name, lat and lng. Description and link are optional.
+# Remove the # from the start of each line below to use the example.
+
+# - name: Meeting venue
+#   lat: 52.5
+#   lng: -1.5
+#   description: Where the forum meets.
+#   link: /meetings/

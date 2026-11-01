@@ -8,7 +8,8 @@ A website for a Local Access Forum, published with GitHub Pages.
 
 | Folder | What it holds | Who edits it |
 |---|---|---|
-| `demo_content/` | Everything about the forum: pages, members, meetings, projects, map data, site settings | Forum maintainers |
+| `demo_content/` | The demo forum: pages, members, meetings, projects, map data, site settings. Currently published | Forum maintainers |
+| `content/` | A blank starter for a real forum, with the same structure. Not published until switched on | Forum maintainers |
 | `_layouts/`, `_includes/`, `assets/` | The engine: page templates, styles, map code | Rarely, someone with web skills |
 | `_config.yml` | Engine settings, including **which content folder is published** | Rarely |
 | `docs/` | Documentation for maintainers (not published) | Anyone |
@@ -38,4 +39,5 @@ Only the named folder is published.
 
 ## More detail
 
-See [docs/site-design.md](docs/site-design.md) for the full design.
+- [docs/getting-started.md](docs/getting-started.md): setting up a copy of this site for your own forum, step by step.
+- [docs/site-design.md](docs/site-design.md): the full design.

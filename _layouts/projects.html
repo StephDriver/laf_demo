@@ -11,6 +11,7 @@ layout: default
 <div class="two-col">
   <section aria-labelledby="latest">
     <h2 id="latest">Latest updates</h2>
+    {% if updates.size == 0 %}<p class="muted">No updates yet.</p>{% endif %}
     <ul class="update-list">
       {% for u in updates limit: 20 %}{% include update-item.html update=u show_project=true %}{% endfor %}
     </ul>
@@ -18,9 +19,13 @@ layout: default
   <section aria-labelledby="all-projects">
     <h2 id="all-projects">All projects</h2>
     <p><a href="{{ '/map/' | relative_url }}">Find projects on the map</a></p>
+    {% assign active = projects | where: "status", "current" %}
+    {% assign completed = projects | where: "status", "archived" %}
     <h3>Active</h3>
+    {% if active.size == 0 %}<p class="muted">No active projects at the moment.</p>{% endif %}
     <ul class="stack">{% for p in projects %}{% if p.status != "archived" %}{% include project-card.html project=p %}{% endif %}{% endfor %}</ul>
     <h3>Completed</h3>
+    {% if completed.size == 0 %}<p class="muted">No completed projects yet.</p>{% endif %}
     <ul class="stack">{% for p in projects %}{% if p.status == "archived" %}{% include project-card.html project=p %}{% endif %}{% endfor %}</ul>
   </section>
 </div>

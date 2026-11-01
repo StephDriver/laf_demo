@@ -7,6 +7,7 @@ layout: default
 {% assign members = site.current | where: "kind", "member" | sort: "name" %}
 {% assign officer_roles = "Chair,Vice Chair,Secretary" | split: "," %}
 
+{% if members.size == 0 %}<p class="muted">No members have been added yet.</p>{% else %}
 <h2>Officers</h2>
 <ul class="card-grid">
   {% for role in officer_roles %}
@@ -18,6 +19,7 @@ layout: default
 <ul class="card-grid">
   {% for m in members %}{% unless officer_roles contains m.role %}{% include member-card.html member=m %}{% endunless %}{% endfor %}
 </ul>
+{% endif %}
 
 {% assign past = site.archive | where: "kind", "member" | sort: "left" | reverse %}
 {% if past.size > 0 %}

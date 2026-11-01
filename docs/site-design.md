@@ -68,6 +68,8 @@ data_dir: demo_content/_data
 
 This is useful while the site is being designed with the wider forum: the demo stays available for comparison while real content is built up.
 
+The repo ships with a blank starter folder, `content/`, alongside the demo. Its example member, meeting, project and update contain `published: false`, so they serve as copyable templates but never appear on the site. Engine pages show a short message ("No members have been added yet") wherever a list is empty, and the map works without rights-of-way data. See `docs/getting-started.md`.
+
 Two rules keep this working:
 
 - Everything in a content folder lives in a sub-folder whose name starts with `_`. Jekyll ignores such folders unless they belong to the active content folder.
@@ -75,7 +77,7 @@ Two rules keep this working:
 
 ### Reuse by other forums
 
-- **Now:** the repo is marked as a GitHub *template repository*. Another forum clicks "Use this template", copies `demo_content/` to a new folder, replaces its contents, and changes the two lines above.
+- **Now:** the repo is marked as a GitHub *template repository*. Another forum clicks "Use this template", fills in the starter `content/` folder, and changes the two lines above. `docs/getting-started.md` walks through this.
 - **Later (optional):** the engine can be split into its own repo and consumed as a Jekyll `remote_theme`, so engine improvements reach every forum automatically. Keeping the engine/content boundary clean now makes this a small change.
 
 ## Content structure
