@@ -18,6 +18,8 @@ Inside the content folder, each member, meeting and project is a folder containi
 
 ## Common tasks
 
+Members make changes on a branch and open a pull request for review; see the [editing guide](docs/editing-guide.md) for step-by-step instructions.
+
 | Task | What to do |
 |---|---|
 | Add a meeting | Copy a folder in `_current/meetings/`, rename it to the meeting date, edit `index.md`, replace the PDFs |
@@ -39,6 +41,8 @@ Only the named folder is published.
 
 ## More detail
 
+- [docs/editing-guide.md](docs/editing-guide.md): how forum members update the site, using branches and pull requests reviewed before going live.
 - [docs/getting-started.md](docs/getting-started.md): setting up a copy of this site for your own forum, step by step.
 - [docs/site-design.md](docs/site-design.md): the full design.
+- [docs/go-live-checklist.md](docs/go-live-checklist.md): steps to turn the demo into the forum's real website, if the forum adopts it.
 - [docs/credits-and-licences.md](docs/credits-and-licences.md): third-party software and data used by the site, and their licences.
