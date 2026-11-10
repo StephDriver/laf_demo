@@ -55,20 +55,16 @@ Work in the `content/` folder on a branch. The live site keeps showing the demo 
 
 **Pages** (`content/_general/`):
 
-- [ ] Home, About, Contact, and the introductions on Members, Meetings, Projects and Map. Search for **CHANGE ME** to find every placeholder.
+- [ ] Home, About, Contact, and the introductions on Projects, Map, How-to guides, Glossary and Resources. Search for **CHANGE ME** to find every placeholder.
 - [ ] Accessibility statement, with the date it was prepared
 - [ ] Check every link
 
-**Members:**
+**Guides, glossary and resources:**
 
-- [ ] Get each member's written agreement to publishing their name, photo and biography. Keep a record of it.
-- [ ] Add a folder for each current member, with `profile.md` and `photo.jpg`
-- [ ] Add past members to `_archive/members/` if the forum wants a public record of them
-
-**Meetings:**
-
-- [ ] Add recent meetings with agendas and minutes, and the next meeting
-- [ ] Decide how far back to publish past papers
+- [ ] Add the how-to guides the forum wants to start with
+- [ ] Add glossary terms
+- [ ] Add resource links, including online maps from other groups. Check each link works.
+- [ ] Decide who will check the resource links from time to time
 
 **Projects:**
 
@@ -114,7 +110,7 @@ Work in the `content/` folder on a branch. The live site keeps showing the demo 
 - [ ] Give editors the [editing guide](editing-guide.md)
 - [ ] Make sure at least two people know how to review and merge changes
 - [ ] Agree who refreshes the rights-of-way data, and how often. The council updates it quarterly; once or twice a year is probably enough for the website.
-- [ ] Add a step to the forum's process for new and departing members: invite or remove their GitHub access, get consent for their profile, and add or archive their folder
+- [ ] Add a step to the forum's process for new and departing editors: invite or remove their GitHub access
 - [ ] Review this checklist and the guides, and correct anything that did not match what you found
 
 ## Open items from the demo

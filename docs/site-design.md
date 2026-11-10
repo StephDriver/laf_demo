@@ -8,7 +8,16 @@ The site is currently a **demo**, hosted on a personal GitHub account. To avoid 
 
 > **Demo Site for a Local Access Forum - Work in Progress**
 
-The map uses real Essex rights-of-way data. Members, meetings, places and projects are fictional, with names taken from Jane Austen's *Pride and Prejudice*, so that it is obvious they are not real.
+The map uses real Essex rights-of-way data. People, places and projects are fictional, with names taken from Jane Austen's *Pride and Prejudice*, so that it is obvious they are not real.
+
+## Scope
+
+The site focuses on **projects and resources**. Member lists and meeting minutes are deliberately left out because they already have an online home elsewhere (decided at initial discussion, November 2026). The site holds:
+
+- **Projects**, with updates and a map
+- **How-to guides**
+- **A glossary**
+- **Resources**: links to other organisations' information, including online maps
 
 ## Goals
 
@@ -17,7 +26,7 @@ The map uses real Essex rights-of-way data. Members, meetings, places and projec
 | Maintainable without web skills | Content is Markdown and YAML; no build tools; editable in GitHub's web editor |
 | Reusable by other LAFs | All forum-specific material lives in one content folder; fork the repo, replace that folder |
 | Survives changes of maintainer | Repo can move from a personal account to an organisation account with no code changes |
-| Keeps a public record | Past members and closed projects are archived, not deleted |
+| Keeps a public record | Closed projects are archived, not deleted |
 | Map-centred | Projects can be given an area and found on a county-wide rights-of-way map |
 | Accessible | Targets WCAG 2.2 AA; includes an accessibility statement |
 
@@ -34,7 +43,7 @@ The map uses real Essex rights-of-way data. Members, meetings, places and projec
 The repo is split into two parts:
 
 - **The engine** (repo root): `_layouts/`, `_includes/`, `assets/` and `_config.yml`. Identical for every forum. Engine code never contains forum-specific names, text, or coordinates.
-- **A content folder** (currently `demo_content/`): everything specific to one forum, including site settings, pages, members, meetings, projects and map data.
+- **A content folder** (currently `demo_content/`): everything specific to one forum, including site settings, pages, projects, guides, glossary, resources and map data.
 
 ```mermaid
 flowchart LR
@@ -68,12 +77,12 @@ data_dir: demo_content/_data
 
 This is useful while the site is being designed with the wider forum: the demo stays available for comparison while real content is built up.
 
-The repo ships with a blank starter folder, `content/`, alongside the demo. Its example member, meeting, project and update contain `published: false`, so they serve as copyable templates but never appear on the site. Engine pages show a short message ("No members have been added yet") wherever a list is empty, and the map works without rights-of-way data. See `docs/getting-started.md`.
+The repo ships with a blank starter folder, `content/`, alongside the demo. Its example guide, project and update contain `published: false`, so they serve as copyable templates but never appear on the site. Engine pages show a short message ("No guides have been added yet") wherever a list is empty, and the map works without rights-of-way data. See `docs/getting-started.md`.
 
 Two rules keep this working:
 
 - Everything in a content folder lives in a sub-folder whose name starts with `_`. Jekyll ignores such folders unless they belong to the active content folder.
-- Nothing in the engine refers to a content folder by name. Front-matter defaults in `_config.yml` use the pattern `*/_*/members` etc., which matches whichever folder is active.
+- Nothing in the engine refers to a content folder by name. Front-matter defaults in `_config.yml` use the pattern `*/_*/guides` etc., which matches whichever folder is active.
 
 ### Reuse by other forums
 
@@ -82,19 +91,22 @@ Two rules keep this working:
 
 ## Content structure
 
-The rule throughout is **one thing, one folder**: each member, meeting, and project is a folder containing its Markdown and all of its images and files.
+The rule throughout is **one thing, one folder**: each project and each guide is a folder containing its Markdown and all of its images and files.
 
 ```
 demo_content/
 ├── _data/
 │   ├── site.yml              # forum name, area, contact email, demo banner, map settings
 │   ├── navigation.yml        # main menu and footer links
-│   └── markers.yml           # general markers for the main map
+│   ├── markers.yml           # general markers for the main map
+│   ├── glossary.yml          # glossary terms and definitions
+│   └── resources.yml         # links to other organisations, in groups
 ├── _general/                 # stand-alone pages, published at /<name>/
 │   ├── home.md               # home page (permalink: /)
 │   ├── about.md
-│   ├── members.md            # intro text; the list is generated
-│   ├── meetings.md           # intro text; the list is generated
+│   ├── guides.md             # intro text; the list is generated
+│   ├── glossary.md           # intro text; the A-Z list is generated
+│   ├── resources.md          # intro text; the groups are generated
 │   ├── projects.md           # intro text; the feed and list are generated
 │   ├── map.md                # intro text; the map is generated
 │   ├── contact.md
@@ -104,16 +116,10 @@ demo_content/
 │       ├── rights-of-way.geojson
 │       └── README.md         # data source, licence, processing
 ├── _current/
-│   ├── members/
-│   │   └── elizabeth-bennet/
-│   │       ├── profile.md
-│   │       └── photo.jpg
-│   ├── meetings/
-│   │   └── 2026-10-14/
+│   ├── guides/
+│   │   └── report-a-path-problem/
 │   │       ├── index.md
-│   │       ├── agenda.pdf
-│   │       ├── minutes.pdf
-│   │       └── chairs-annual-report.pdf
+│   │       └── photo.jpg     # images sit alongside
 │   └── projects/
 │       └── longbourn-footpath-survey/
 │           ├── index.md      # project landing page
@@ -125,17 +131,16 @@ demo_content/
 │           ├── images/
 │           └── files/
 └── _archive/
-    ├── members/              # same structure as _current
-    └── projects/
+    └── projects/             # same structure as _current
 ```
 
-Pages such as Members and Map are content files that choose an engine layout (`layout: members`, `layout: map`). The content supplies the title and introduction; the engine supplies the generated list or map. A forum can therefore reword, rename, or drop any page without touching the engine.
+Pages such as Guides and Map are content files that choose an engine layout (`layout: guides`, `layout: map`). The content supplies the title and introduction; the engine supplies the generated list or map. A forum can therefore reword, rename, or drop any page without touching the engine.
 
 ### Current and archive
 
 - `_current` and `_archive` have identical structures. Archiving something means **moving its folder** from one to the other.
 - The folder location is the only record of status — there is no `status` or `current` field to keep in sync.
-- **Web addresses do not change when a folder is archived.** Both `_current/members/jane-bennet/` and `_archive/members/jane-bennet/` publish to `/members/jane-bennet/`, so links from elsewhere keep working.
+- **Web addresses do not change when a folder is archived.** Both `_current/projects/river-path/` and `_archive/projects/river-path/` publish to `/projects/river-path/`, so links from elsewhere keep working.
 - The leading underscore is required by Jekyll to recognise these folders as content collections.
 
 ### Web addresses and links
@@ -158,7 +163,7 @@ Because every page of a project shares one folder, plain relative Markdown links
 
 Links to another page of the same project can use its `.md` file name. This works when previewing the file on GitHub, and a small script (`assets/js/site.js`) changes it to `.html` on the site.
 
-Links to other parts of the site are written from the root, such as `[our members](/members/)`. While the site is served from a sub-folder (for example `username.github.io/repo/`), the same script adds the sub-folder to these links. On a custom domain it does nothing.
+Links to other parts of the site are written from the root, such as `[our guides](/guides/)`. While the site is served from a sub-folder (for example `username.github.io/repo/`), the same script adds the sub-folder to these links. On a custom domain it does nothing.
 
 Configuration (verified on Jekyll 3.10):
 
@@ -175,55 +180,37 @@ The stand-alone pages are a collection called `general` rather than `pages`, bec
 
 | Page | Generated from | Behaviour |
 |---|---|---|
-| Home | `_general/home.md` | Introduction, next meeting, latest three project updates |
+| Home | `_general/home.md` | Introduction, latest three project updates, links to guides, glossary and resources |
 | About, Contact | `_general/` | Plain Markdown |
-| Members | `_current/members/`, `_archive/members/` | Officers first (Chair, Vice Chair, Secretary), then members, each with photo and short bio linking to a full profile; table of past members |
-| Meetings | `_current/meetings/` | Upcoming and past meetings by date, with agenda, minutes and any other papers |
+| Guides | `_current/guides/` | Alphabetical list of how-to guides, each linking to its own page |
+| Glossary | `_data/glossary.yml` | Terms A to Z with a letter index |
+| Resources | `_data/resources.yml` | Grouped links to other organisations' maps and information |
 | Projects | `_current/projects/`, `_archive/projects/` | News feed of all project updates (newest first, each linking to its project), plus lists of active and completed projects |
 | Project landing | `projects/<name>/index.md` | Summary, status, map (if it has an area or markers), its updates, and a list of its pages |
 | Map | all projects, `_data/markers.yml` | County map with rights of way, project areas and markers, and a searchable project list |
 | Accessibility | `_general/accessibility.md` | Accessibility statement |
 | Sitemap | everything | Human-readable list of all pages; `sitemap.xml` generated for search engines |
 
-### Members
+### Guides
 
-`profile.md` front matter:
-
-```yaml
----
-name: Jane Bennet
-role: Member           # Chair | Vice Chair | Secretary | Member
-interest: Access for people with limited mobility
-joined: "2024-01"      # year and month, in quotes
-left:                  # set when archived, e.g. "2026-03"
----
-Short biography in Markdown. The first paragraph is shown on the Members page.
-```
-
-The photo is `photo.jpg` (or any image named `photo`) in the same folder. If it is missing, a neutral placeholder is shown.
-
-**When a member leaves:** set `left:` and move the folder to `_archive/members/`.
-
-**If a member asks to be removed:** delete their folder. Note that the repo's git history still contains their details; complete removal requires rewriting history (`git filter-repo`), which needs someone with admin access. Members should agree to publication of their photo and biography when they join.
-
-### Meetings
-
-`index.md` front matter:
+Each guide is a folder in `_current/guides/` containing `index.md` and any images. Front matter:
 
 ```yaml
 ---
-date: 2027-01-20
-time: "10:00"
-venue: Meryton Assembly Rooms
+title: How to report a problem on a path
+summary: One sentence shown in the list of guides.
 ---
-Optional notes.
 ```
 
-The engine lists every PDF in the meeting folder. `agenda.pdf` and `minutes.pdf` are recognised by name; other PDFs are listed by file name (`chairs-annual-report.pdf` becomes "Chairs annual report"). If there is no agenda the page says "Agenda to follow"; after the meeting date, if there are no minutes, it says "Minutes to follow".
+The Guides page lists every guide alphabetically by title.
 
-"Upcoming" and "past" are worked out when the site is built. Because the site is only rebuilt when something changes, a small script (`assets/js/meetings.js`) moves meetings into "Past meetings" once their date has passed.
+### Glossary
 
-Meetings are a special case: **all meetings stay in `_current`** for now. Archiving meetings may be revisited later.
+`_data/glossary.yml` is a list of `term` and `definition` entries. The Glossary page sorts them A to Z, groups them by letter, and gives each term an anchor (`/glossary/#footpath`) so other pages can link to it. A single file suits this content: entries are short and rarely need their own media.
+
+### Resources
+
+`_data/resources.yml` is a list of groups, each with a `title`, optional `intro`, and `items` (`name`, `url`, optional `provider` and `description`). Groups include "Online maps" run by other organisations. External links are not checked automatically, so they need an occasional manual check.
 
 ### Projects
 
@@ -294,7 +281,8 @@ The project then appears on the main map and its own map automatically.
 | Editing | GitHub web editor, or clone and push; no CMS |
 | Media location | Alongside the content it belongs to |
 | Status tracking | Folder location (`_current` / `_archive`) |
-| Meetings | All in `_current`; archiving deferred |
+| Members and meetings | Not on this site; they already have an online home elsewhere |
+| Glossary and resources | Single data files, not one folder per entry |
 | Content folder | Selectable in `_config.yml`; currently `demo_content/` |
 | Map library | Leaflet 1.9.4, stored in the repo, with OpenStreetMap tiles |
 | Rights-of-way source | Essex County Council open data (OGL v3), served as a single simplified GeoJSON |

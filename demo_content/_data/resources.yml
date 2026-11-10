@@ -1,0 +1,35 @@
+# Links to other organisations' resources, in groups.
+# Each group has a title and an optional intro. Each item has a name and a url,
+# and optionally a provider (who runs it) and a description.
+# Keep the indentation exactly as shown.
+
+- title: Online maps
+  intro: Maps run by other organisations. They are on other websites.
+  items:
+    - name: OpenStreetMap
+      url: https://www.openstreetmap.org/
+      provider: OpenStreetMap contributors
+      description: A free map of the world, edited by volunteers. Shows many footpaths and bridleways.
+    - name: MAGIC map
+      url: https://magic.defra.gov.uk/
+      provider: Defra and partners
+      description: Official government map of environmental designations, including open access land.
+    - name: OS Maps
+      url: https://explore.osmaps.com/
+      provider: Ordnance Survey
+      description: Ordnance Survey maps online, with rights of way marked. Some features need a subscription.
+
+- title: Guidance and advice
+  items:
+    - name: Rights of way and accessing land
+      url: https://www.gov.uk/right-of-way-open-access-land
+      provider: GOV.UK
+      description: Official guidance on rights of way, open access land and what you can and cannot do.
+    - name: Ramblers
+      url: https://www.ramblers.org.uk/
+      provider: Ramblers
+      description: Walking charity. Offers path advice and volunteer path-checking.
+    - name: British Horse Society
+      url: https://www.bhs.org.uk/
+      provider: British Horse Society
+      description: Advice and campaigns on safe access for horse riders and carriage drivers.

@@ -11,9 +11,9 @@ to land for open-air recreation and enjoyment.
 
 ## Who we are
 
-Describe the interests your members represent. See [our members](/members/).
+Describe the interests your members represent.
 
 ## How we work
 
-Describe how often you meet and how people can get involved. See our
-[meetings](/meetings/) and [projects](/projects/).
+Describe how people can get involved. See our [projects](/projects/),
+[how-to guides](/guides/) and [resources](/resources/).

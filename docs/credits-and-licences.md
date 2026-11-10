@@ -62,9 +62,8 @@ Hosting on GitHub Pages is subject to [GitHub's terms](https://docs.github.com/e
 
 ## Demo content
 
-- **Names** of members, places and projects come from Jane Austen's *Pride and Prejudice* (1813), which is in the public domain. They are used so that the demo is obviously fictional.
-- **Member photos** are generated placeholders (initials on a coloured background, marked "DEMO"). They are not pictures of real people.
-- **Project images and PDFs** (agendas, minutes, reports, survey form) were generated for this demo and are marked as fictional.
+- **Names** of people, places and projects come from Jane Austen's *Pride and Prejudice* (1813), which is in the public domain. They are used so that the demo is obviously fictional.
+- **Project images and PDFs** (reports, survey form) were generated for this demo and are marked as fictional.
 
 ## Fonts
 
@@ -81,4 +80,4 @@ Because the site is meant to be reused by other Local Access Forums, the forum s
 | [MIT](https://choosealicense.com/licenses/mit/) | The code (layouts, styles, scripts) | Anyone may reuse and adapt it, provided they keep the copyright notice |
 | [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) | Written content and documentation | Anyone may reuse and adapt it, provided they credit the source |
 
-[choosealicense.com](https://choosealicense.com/) explains the options. A forum's own content (member biographies and photos, minutes) does not need to be offered for reuse; the licence can cover the engine and documentation only, and say so.
+[choosealicense.com](https://choosealicense.com/) explains the options. A forum's own content (project reports and photographs) does not need to be offered for reuse; the licence can cover the engine and documentation only, and say so.

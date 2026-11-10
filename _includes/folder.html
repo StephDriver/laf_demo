@@ -1,8 +1,8 @@
 {%- comment -%}
-  Finds the files stored alongside a document (photos, PDFs, map areas).
+  Finds the files stored alongside a document (images, PDFs, map areas).
   Usage: {% include folder.html doc=page %}
-  Sets:  folder_path  - the document's folder in content/, e.g. _current/members/jane-bennet/
-         folder_url   - the folder's web address, e.g. /members/jane-bennet/
+  Sets:  folder_path  - the document's folder in content/, e.g. _current/projects/river-path/
+         folder_url   - the folder's web address, e.g. /projects/river-path/
          folder_files - the files in that folder and its subfolders
 {%- endcomment -%}
 {%- assign folder_path = include.doc.relative_path | split: "/" | pop | join: "/" | append: "/" -%}

@@ -4,8 +4,7 @@
 - name: Meryton Assembly Rooms
   lat: 51.7347
   lng: 0.4723
-  description: Venue for forum meetings (fictional).
-  link: /meetings/
+  description: Community venue and a good place to start a walk (fictional).
 
 - name: Lambton Inn car park
   lat: 51.9586

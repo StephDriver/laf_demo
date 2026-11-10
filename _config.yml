@@ -1,8 +1,8 @@
 # Engine configuration.
 #
 # You should not normally need to edit this file. Everything specific to a
-# forum (name, contact details, map, pages, members, meetings, projects)
-# lives in a content folder. Site settings are in <content folder>/_data/site.yml.
+# forum (name, contact details, map, pages, projects, guides, glossary,
+# resources) lives in a content folder. Site settings are in <content folder>/_data/site.yml.
 
 markdown: kramdown
 kramdown:
@@ -16,7 +16,7 @@ collections_dir: demo_content
 data_dir: demo_content/_data
 # ---------------------------------------------------------------------------
 
-# Show meetings and updates dated in the future (e.g. the next meeting).
+# Show items dated in the future (e.g. a project update written in advance).
 future: true
 
 plugins:
@@ -24,8 +24,8 @@ plugins:
 
 # Three kinds of content:
 #   general  - stand-alone pages (About, Contact, ...)  -> /about/
-#   current  - current members, meetings, projects      -> /members/<name>/...
-#   archive  - past members and closed projects         -> same addresses as current,
+#   current  - current projects and how-to guides       -> /projects/<name>/...
+#   archive  - closed projects                          -> same addresses as current,
 #              so moving a folder to the archive does not break links.
 collections:
   general:
@@ -45,10 +45,8 @@ defaults:
     values: { status: current }
   - scope: { type: archive }
     values: { status: archived }
-  - scope: { path: "*/_*/members" }
-    values: { layout: member, kind: member }
-  - scope: { path: "*/_*/meetings" }
-    values: { layout: meeting, kind: meeting }
+  - scope: { path: "*/_*/guides" }
+    values: { layout: guide, kind: guide }
   - scope: { path: "*/_*/projects" }
     values: { layout: project-page, kind: project-page }
   - scope: { path: "*/_*/projects/*/index.md" }

@@ -185,31 +185,44 @@ As for photos, but upload to the project's `files/` folder and link to it with:
    To highlight particular footpaths or bridleways, list them under `paths:` in the project's settings, copying the example in `access-for-disabled-cyclists-fingringhoe-3/index.md`. The parish, number and type (Footpath, Bridleway, Restricted Byway or Byway) must match the council's data exactly.
 5. Commit, then open a pull request.
 
-### Add meeting papers
+### Add or edit a how-to guide
 
 1. Create a branch.
-2. For a new meeting, open `_current/meetings/` and **Add file** > **Create new file**, named `<date>/index.md`, e.g. `2027-04-21/index.md`:
+2. To add a guide, open `_current/guides/` and **Add file** > **Create new file**, named `<guide-name>/index.md`, e.g. `report-a-path-problem/index.md` (lower case, hyphens):
 
    ```markdown
    ---
-   date: 2027-04-21
-   time: "10:00"
-   venue: Where the meeting is held
+   title: How to report a problem on a path
+   summary: One sentence shown in the list of guides.
    ---
+   Write the guide here. Use ## for each section heading.
    ```
 
-3. Open the meeting's folder and upload the papers. Name the agenda `agenda.pdf` and the minutes `minutes.pdf`; other PDFs are listed by their file name.
-4. Commit, then open a pull request.
+3. Upload any images to the same folder and refer to them by file name, e.g. `![Description](photo.jpg)`.
+4. To edit a guide, open its `index.md` and select the pencil icon.
+5. Commit, then open a pull request.
 
-### Update a member's profile
+Guides are listed alphabetically by title.
+
+### Add a glossary term
 
 1. Create a branch.
-2. Open `_current/members/<member-name>/profile.md` and edit it. To change the photo, upload a new `photo.jpg` to the same folder; it replaces the old one.
-3. Commit, then open a pull request.
+2. Open `_data/glossary.yml` and select the pencil icon.
+3. Copy an existing entry (the `- term:` line and the `definition:` line below it) to the end of the file and change the words. Keep the indentation exactly as it is. The page puts the terms in A to Z order for you.
+4. Commit, then open a pull request.
 
-### Close a project or record a member leaving
+### Add a resource link
 
-These involve moving a folder from `_current` to `_archive`, which is awkward in the web editor. Open a pull request that adds `ended: "YYYY-MM"` to the project's `index.md` (or `left: "YYYY-MM"` to the member's `profile.md`), and ask the maintainer in the description to move the folder.
+1. Create a branch.
+2. Open `_data/resources.yml` and select the pencil icon.
+3. To add a link to an existing group, copy one of its items (the `- name:` line and the lines below it) and change the words. To add a new group, copy a whole group, starting at its `- title:` line.
+4. Commit, then open a pull request.
+
+Links go to other organisations' websites. Check that each one works before you add it, and check them all now and again.
+
+### Close a project
+
+This involves moving a folder from `_current` to `_archive`, which is awkward in the web editor. Open a pull request that adds `ended: "YYYY-MM"` to the project's `index.md`, and ask the maintainer in the description to move the folder.
 
 ## Writing tips
 
@@ -217,7 +230,7 @@ These involve moving a folder from `_current` to `_archive`, which is awkward in
 - **Paragraphs:** leave a blank line between them.
 - **Headings:** start a line with `## `.
 - **Lists:** start each line with `- `.
-- **Links:** `[text people see](address)`. For other parts of the site, start the address with `/`, e.g. `[our members](/members/)`.
+- **Links:** `[text people see](address)`. For other parts of the site, start the address with `/`, e.g. `[our guides](/guides/)`.
 - **File names:** lower case, hyphens instead of spaces, no special characters.
 - GitHub's [Markdown guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) covers more formatting.
 
@@ -233,7 +246,7 @@ These involve moving a folder from `_current` to `_archive`, which is awkward in
 4. After merging, check the **Actions** tab shows a green tick, then look at the live page. A red cross means the site could not be built and the previous version is still live; the run's log names the file at fault.
 5. Select **Delete branch** to tidy up.
 
-When a member asks for a folder to be moved to the archive, do it on their branch before merging, using `git mv` on a local copy or [github.dev](https://github.dev) (press `.` on the repository page).
+When an editor asks for a project folder to be moved to the archive, do it on their branch before merging, using `git mv` on a local copy or [github.dev](https://github.dev) (press `.` on the repository page).
 
 ### One-off setup
 

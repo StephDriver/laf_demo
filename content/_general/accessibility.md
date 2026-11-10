@@ -19,7 +19,7 @@ We know some parts of the website are not fully accessible:
 - **Maps** cannot be fully used without sight or a mouse. Every project shown
   on a map is also listed by name on the [Projects](/projects/) page and next
   to the map, so you can reach the same information without using the map.
-- **PDF documents**, such as older meeting minutes, may not be fully accessible
+- **PDF documents**, such as project reports, may not be fully accessible
   to screen reader software.
 
 ## Reporting accessibility problems

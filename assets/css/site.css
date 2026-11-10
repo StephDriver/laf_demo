@@ -104,12 +104,6 @@ main:focus { outline: none; }
 
 .card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
 
-.member-card { display: flex; gap: 1rem; align-items: flex-start; }
-.member-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none; background: var(--green-light); }
-.member-photo--none { border: 2px dashed var(--line); }
-.member-profile { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
-.member-profile .member-photo { width: 200px; height: 200px; margin-top: 1rem; }
-
 .project-card.is-archived { background: #fafafa; }
 
 .update { border-left: 4px solid var(--green); background: var(--paper); padding: 0.75rem 1rem; margin-bottom: 1rem; border-radius: 0 var(--radius) var(--radius) 0; }
@@ -156,3 +150,14 @@ main:focus { outline: none; }
 .map-legend ul { list-style: none; padding: 0; margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
 .map-legend li { display: flex; align-items: center; gap: 0.5rem; }
 .map-legend svg { flex: none; }
+
+/* Glossary */
+.az-nav { display: flex; flex-wrap: wrap; gap: 0.25rem; list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.az-nav a { display: block; min-width: 2.25rem; padding: 0.25rem 0.5rem; text-align: center; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+.glossary dt { font-weight: 700; margin-top: 1rem; }
+.glossary dd { margin: 0.25rem 0 0; max-width: 46rem; }
+.glossary-letter { margin-top: 2rem; }
+
+/* Resources */
+.resource-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.resource-list .card h3 { font-size: 1.1rem; }

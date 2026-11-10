@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign terms = site.data.glossary | sort_natural: "term" %}
+{% if terms.size == 0 %}<p class="muted">No terms have been added yet.</p>{% endif %}
+{% assign letters = terms | group_by_exp: "t", "t.term | slice: 0 | upcase" %}
+{% if letters.size > 1 %}
+<nav aria-label="Jump to letter">
+  <ul class="az-nav">{% for l in letters %}<li><a href="#letter-{{ l.name }}">{{ l.name }}</a></li>{% endfor %}</ul>
+</nav>
+{% endif %}
+{% for l in letters %}
+<section class="glossary-letter" aria-labelledby="letter-{{ l.name }}">
+  <h2 id="letter-{{ l.name }}">{{ l.name }}</h2>
+  <dl class="glossary">
+    {% for t in l.items %}
+    <dt id="{{ t.term | slugify }}">{{ t.term }}</dt>
+    <dd>{{ t.definition | markdownify | remove: '<p>' | remove: '</p>' }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+{% endfor %}

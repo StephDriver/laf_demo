@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign groups = site.data.resources %}
+{% if groups.size == 0 %}<p class="muted">No resources have been added yet.</p>{% endif %}
+{% for g in groups %}
+<section aria-labelledby="{{ g.title | slugify }}">
+  <h2 id="{{ g.title | slugify }}">{{ g.title }}</h2>
+  {% if g.intro %}<p>{{ g.intro }}</p>{% endif %}
+  <ul class="resource-list">
+    {% for r in g.items %}
+    <li class="card">
+      <h3><a href="{{ r.url }}">{{ r.name }}</a></h3>
+      {% if r.provider %}<p class="meta">{{ r.provider }}</p>{% endif %}
+      {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<p class="small muted">Links go to websites run by other organisations. We are not responsible for their content.</p>

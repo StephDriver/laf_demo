@@ -1,0 +1,13 @@
+# Links to other organisations' resources, in groups.
+# Each group has a title and an optional intro. Each item has a name and a url,
+# and optionally a provider (who runs it) and a description.
+# Keep the indentation exactly as shown.
+# Remove the # from the start of each line below to use the example.
+
+# - title: Online maps
+#   intro: Maps run by other organisations.
+#   items:
+#     - name: OpenStreetMap
+#       url: https://www.openstreetmap.org/
+#       provider: OpenStreetMap contributors
+#       description: A free map of the world, edited by volunteers.

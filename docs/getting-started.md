@@ -5,7 +5,7 @@ This guide is for a Local Access Forum that wants its own copy of this website. 
 ## What you will end up with
 
 - A website at `https://<your-account>.github.io/<repo-name>/`, or later on your own domain.
-- Pages for your forum, members, meetings (with agendas and minutes), projects, and a map.
+- Pages for your forum, projects, a map, how-to guides, a glossary and a list of resources.
 - Everything edited through GitHub in your web browser. There is nothing to install.
 
 ```mermaid
@@ -61,7 +61,7 @@ From now on, **every change you commit rebuilds the site automatically**. It tak
 
 ## 3. Look at the demo
 
-Open your site's address. You will see the demo: a fictional forum whose members, meetings and projects are named after characters in Jane Austen's *Pride and Prejudice*, with a yellow banner saying it is a demo.
+Open your site's address. You will see the demo: a fictional forum whose projects are named after characters in Jane Austen's *Pride and Prejudice*, with a yellow banner saying it is a demo.
 
 Have a look around. The demo shows every feature working, so it is a useful reference while you fill in your own content.
 
@@ -102,7 +102,7 @@ Edit each file in `content/_general/`:
 |---|---|
 | `home.md` | Home page introduction |
 | `about.md` | About the forum |
-| `members.md`, `meetings.md`, `projects.md`, `map.md` | The introduction at the top of each of those pages. The lists and the map are added automatically |
+| `projects.md`, `map.md`, `guides.md`, `glossary.md`, `resources.md` | The introduction at the top of each of those pages. The lists and the map are added automatically |
 | `contact.md` | Contact details |
 | `accessibility.md` | Accessibility statement. Update the date at the bottom |
 
@@ -110,21 +110,22 @@ Each file starts with a few lines between `---` markers. Leave these as they are
 
 To change the menu, edit `content/_data/navigation.yml`.
 
-### Members, meetings and projects
+### Glossary and resources
 
-Each member, meeting and project is a **folder** holding its text and all of its photos and files. Current ones go in `content/_current/`; when a member leaves or a project finishes, its folder moves to `content/_archive/`, keeping a public record.
+These are lists rather than folders.
+
+- **Glossary:** add terms to `content/_data/glossary.yml`. Each is a `term` and a `definition`. They appear in A to Z order automatically.
+- **Resources:** add links to other organisations' maps and information in `content/_data/resources.yml`, in groups such as "Online maps". Each is a `name` and a `url`, with an optional `provider` and `description`.
+
+Both files start with a commented-out example. Remove the `#` from the start of each line to use it.
+
+### Projects and guides
+
+Each project and each how-to guide is a **folder** holding its text and all of its images and files. Current ones go in `content/_current/`; when a project finishes, its folder moves to `content/_archive/`, keeping a public record.
 
 The starter includes one example of each. The examples contain `published: false`, so they never appear on the site; copy them when adding your own.
 
-**To add a member:**
-
-1. Open `content/_current/members/example-member/profile.md` and copy its text.
-2. Go back to `content/_current/members/` and select **Add file** > **Create new file**.
-3. Name it `jane-smith/profile.md` (use the member's name, in lower case, with hyphens).
-4. Paste the text, delete the comment lines starting with `#` and the `published: false` line, and fill in the details.
-5. Commit, then open the new `jane-smith` folder and upload their photo, named `photo.jpg`.
-
-**To add a meeting:** the same, in `content/_current/meetings/`, naming the folder after the date, e.g. `2027-04-21/index.md`. Upload `agenda.pdf` before the meeting and `minutes.pdf` afterwards. Any other PDFs in the folder are listed too.
+**To add a guide:** open `content/_current/guides/example-guide/index.md` and copy its text. Go back to `content/_current/guides/`, select **Add file** > **Create new file**, and name it `report-a-problem/index.md` (lower case, with hyphens). Paste the text, delete the comment lines starting with `#` and the `published: false` line, and write your guide. Upload any images to the same folder.
 
 **To add a project:** the same, in `content/_current/projects/`, e.g. `river-path/index.md`. Then:
 

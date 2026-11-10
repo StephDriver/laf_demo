@@ -12,11 +12,8 @@ layout: default
     {% for item in site.data.navigation.footer %}<li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>{% endfor %}
   </ul>
 
-  <h2>Members</h2>
-  <ul>{% assign members = all | where: "kind", "member" | sort: "name" %}{% for m in members %}<li><a href="{{ m.url | relative_url }}">{{ m.name }}</a>{% if m.status == "archived" %} (past member){% endif %}</li>{% endfor %}</ul>
-
-  <h2>Meetings</h2>
-  <ul>{% assign meetings = all | where: "kind", "meeting" | sort: "date" | reverse %}{% for m in meetings %}<li><a href="{{ m.url | replace: 'index.html', '' | relative_url }}">{% include meeting-title.html meeting=m %}</a></li>{% endfor %}</ul>
+  <h2>How-to guides</h2>
+  <ul>{% assign guides = all | where: "kind", "guide" | sort: "title" %}{% for g in guides %}<li><a href="{{ g.url | replace: 'index.html', '' | relative_url }}">{{ g.title }}</a></li>{% endfor %}</ul>
 
   <h2>Projects</h2>
   <ul>

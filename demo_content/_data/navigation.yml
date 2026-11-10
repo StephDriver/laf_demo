@@ -4,14 +4,16 @@ main:
     url: /
   - title: About
     url: /about/
-  - title: Members
-    url: /members/
-  - title: Meetings
-    url: /meetings/
   - title: Projects
     url: /projects/
   - title: Map
     url: /map/
+  - title: How-to guides
+    url: /guides/
+  - title: Glossary
+    url: /glossary/
+  - title: Resources
+    url: /resources/
   - title: Contact
     url: /contact/
 

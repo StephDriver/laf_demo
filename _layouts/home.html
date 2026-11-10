@@ -2,31 +2,26 @@
 layout: default
 ---
 {% assign all = site.current | concat: site.archive %}
-{% assign today = site.time | date: "%Y-%m-%d" %}
 <div class="prose home-intro">
   <h1>{{ page.heading | default: site.data.site.name }}</h1>
   {{ content }}
 </div>
 
 <div class="home-grid">
-  <section aria-labelledby="next-meeting">
-    <h2 id="next-meeting">Next meeting</h2>
-    {% assign meetings = all | where: "kind", "meeting" | sort: "date" %}
-    {% assign next = nil %}
-    {% for m in meetings %}{% assign d = m.date | date: "%Y-%m-%d" %}{% if d >= today %}{% assign next = m %}{% break %}{% endif %}{% endfor %}
-    {% if next %}
-      <ul class="stack">{% include meeting-item.html meeting=next %}</ul>
-    {% else %}
-      <p>No upcoming meetings have been published yet.</p>
-    {% endif %}
-    <p><a href="{{ '/meetings/' | relative_url }}">All meetings, agendas and minutes</a></p>
-  </section>
-
   <section aria-labelledby="latest-updates">
     <h2 id="latest-updates">Latest project updates</h2>
     {% assign updates = all | where: "kind", "update" | sort: "date" | reverse %}
     {% if updates.size == 0 %}<p>No project updates yet.</p>{% endif %}
     <ul class="update-list">{% for u in updates limit: 3 %}{% include update-item.html update=u show_project=true %}{% endfor %}</ul>
     <p><a href="{{ '/projects/' | relative_url }}">All projects and updates</a></p>
+  </section>
+
+  <section aria-labelledby="find-help">
+    <h2 id="find-help">Guides and resources</h2>
+    <ul class="stack">
+      <li class="card"><h3><a href="{{ '/guides/' | relative_url }}">How-to guides</a></h3><p>Step-by-step help with common questions about paths and access.</p></li>
+      <li class="card"><h3><a href="{{ '/glossary/' | relative_url }}">Glossary</a></h3><p>Plain-English explanations of the terms used on rights of way and access.</p></li>
+      <li class="card"><h3><a href="{{ '/resources/' | relative_url }}">Resources</a></h3><p>Online maps and useful links from other organisations.</p></li>
+    </ul>
   </section>
 </div>

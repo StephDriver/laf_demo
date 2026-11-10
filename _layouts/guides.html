@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<div class="prose">{{ content }}</div>
+
+{% assign guides = site.current | concat: site.archive | where: "kind", "guide" | sort: "title" %}
+{% if guides.size == 0 %}<p class="muted">No guides have been added yet.</p>{% endif %}
+<ul class="card-grid">
+  {% for g in guides %}
+  <li class="card">
+    <h2><a href="{{ g.url | replace: 'index.html', '' | relative_url }}">{{ g.title }}</a></h2>
+    {% if g.summary %}<p>{{ g.summary }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

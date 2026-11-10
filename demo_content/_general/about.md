@@ -18,16 +18,21 @@ We advise:
 
 Our members are volunteers who bring different interests and experience:
 walkers, horse riders, cyclists, farmers, landowners, parish councils, and
-people who know the barriers faced by those with limited mobility. See
-[our members](/members/).
+people who know the barriers faced by those with limited mobility.
 
-## How we work
+## About this website
 
-- We hold a full forum [meeting](/meetings/) four times a year. Meetings are
-  open to the public, and agendas and minutes are published here.
-- Small groups of members take on specific [projects](/projects/), such as
-  surveying a parish's paths or reviewing a proposed new route.
-- We respond to consultations on matters affecting public access.
+This website is about our work and about finding out more. It does not list
+our members or publish our meeting papers, which are kept elsewhere. Instead
+it has:
+
+- our [projects](/projects/), such as surveying a parish's paths or reviewing
+  a proposed new route, and a [map](/map/) that shows where they are
+- [how-to guides](/guides/) for common questions
+- a [glossary](/glossary/) of access terms
+- [resources](/resources/), including online maps from other organisations
+
+We also respond to consultations on matters affecting public access.
 
 ## What we do not do
 
